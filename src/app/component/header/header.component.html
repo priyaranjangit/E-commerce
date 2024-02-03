@@ -1,0 +1,35 @@
+<header *ngIf="showHeader">
+    <div class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;  
+            </i>
+            <strong style="font-size: 30px; cursor: pointer;" [routerLink]="['/']">Tez-Mart</strong>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="search products">
+            </div>
+            <span class="fas fa-search search-icon"></span>
+        </div>
+        <a (click)="goToWishList()" class="text-danger"><i class='fa fa-heart' style="cursor: pointer; color: red;" ></i></a>
+        <!-- <i class="far fa-heart " style="cursor: pointer;" ></i> -->
+        <button routerLink="viewcart" class="btn btn-primary" >
+            <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+            <div style="font-size: 10px;" class="badge bg-danger">{{totalCartIteam.length}}</div>
+        </button>
+    </div>
+</header>
+<header *ngIf="!showHeader">
+    <div class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;  
+            </i>
+            <strong style="font-size: 30px; cursor: pointer;" [routerLink]="['/']">Tez-Mart</strong>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="search products">
+            </div>
+            <span class="fas fa-search search-icon"></span>
+        </div>
+        <!-- <a (click)="goToWishList()" class="text-danger"><i class='fa fa-heart' style="cursor: pointer; color: red;" ></i></a> -->
+        <!-- <i class="far fa-heart " style="cursor: pointer;" ></i> -->
+       
+    </div>
+</header>

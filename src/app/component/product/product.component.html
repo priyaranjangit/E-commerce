@@ -1,0 +1,115 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+                <h6>All products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="">
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img style="width: 62px; margin-top: 5px;"
+                    src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50"
+                    alt="">
+                <h6>Jewllery</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <!-- <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3">
+                <img src="{{item.image}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">item.title</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">item.description</p>
+                <p><strong>Price:</strong> ${{item.price}}</p>
+                <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
+            </div>
+        </ng-container> -->
+        <!-- <div>
+
+        </div> -->
+        <ng-container *ngFor="let item of productData">
+            <div class="card col-md-3" >
+                <!-- <i class="far fa-heart " style="margin-left: 275px;" 
+                (click)="addEvent($event)" [ngStyle]="{ 'background-color': true ? 'red' : '#000' }"></i> -->
+                <!-- <div class="border-product">
+                    <div class="product-icon">
+                        <form class="d-inline-block">
+                            <button class="wishlist-btn" (click)="addToWishlist(item)" ><i class="fa fa-heart"></i><span
+                                    class="title-font">
+                                    Add To WishList</span></button>
+                        </form>
+                    </div>
+                </div> -->
+                <!-- <button class="wishlist-btn" (click)="addToWishlist(item)" ><i class="fa fa-heart"></i><span
+                    class="title-font">
+                    Add To WishList</span></button> -->
+                <i class="far fa-heart " style="margin-left: 275px; cursor: pointer;" (click)=addToWishlist(item)></i>
+                <!-- [style.color]="currentColor" (click)="changeColor()">Click me to change color -->
+                <!-- <i class="far fa-heart  wishlist" [class.clicked]="isClicked" (click)=addToWishlist(item)></i> -->
+                <!-- <div class="wishlist"  (click)=addToWishlist(item) [class.clicked]="isClicked">
+                    <i class="fa fa-heart"></i>
+                  </div> -->
+               
+                <!-- <i class="fa-solid fa-heart fa-beat"></i> -->
+             
+                <a [routerLink]="['/showproduct',item.id]" target="_blank">
+
+                    <img src="{{item.image}}" class="pointer" alt="">
+                </a>
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                    {{item.title}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                    {{item.description}}</p>
+                <p><strong>Price:</strong> ${{item.price}}</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- <p>{{ btnText === 'yes' ? 'Yes' : 'No' }}</p> -->
+                            <p></p>
+                            <!-- <button *ngIf="true" class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>ByNow</button>
+                            <button  *ngIf="false" class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>Add To Card</button> -->
+                            <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>{{ resultMessage }}</button>
+                            <!-- <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart1(item)>Addnew</button> -->
+                            <!-- <ng-container *ngFor="let data of matchedValues">
+                                {{data.id}}
+
+                            </ng-container> -->
+                            <!-- {{  matchedValues.id == item.id ? 'Match found' : 'No match found' }} -->
+                            <!-- {{item.id}} {{matchedValues.id }} -->
+                        </div>
+                        <div class="col-md-6 "  >
+                            <!-- {{item}} -->
+                            <!-- <ng-container *ngFor="let item of elementData">
+                                {{item}}
+                            </ng-container> -->
+                            <!-- <a (click)="buyNow(item)" class="btn text-center btn-warning"> Buy now </a> -->
+                            <!-- <p>Match: {{ matchResult }}</p> -->
+                            <!-- <span *ngFor="let data of storageItems">
+                                <p>Match: {{data.product.id===item.id ? 'Yes' : '' }}</p>
+                            </span> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        data:shoert{{matchedValues}}
+    </div>
+</div>

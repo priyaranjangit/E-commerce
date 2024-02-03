@@ -1,0 +1,71 @@
+<!-- cart + summary -->
+<section class="my-5">
+    <div class="container" *ngIf="wishlistItems.length>=1">
+      <div class="row">
+        <!-- cart -->
+        <div class="col-lg-12">
+          <div class="card border shadow-0">
+            <div class="m-4">
+              <h4 class="card-title mb-4">My Wishlist ({{wishlistItems.length}})</h4>
+              <ng-container *ngFor="let product of wishlistItems">
+              <!-- {{product.title}} -->
+              <div class="card rounded-3 mb-4">
+                  <!-- {{product.product.title}} -->
+                  <div class="card-body p-4">
+                    <div class="row d-flex justify-content-between align-items-center">
+                      <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                          <!-- Image -->
+                          <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                            <img class="w-50" src="{{product.image}}" />
+                            <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+                              class="w-50" /> -->
+                            <a href="#!">
+                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                            </a>
+                          </div>
+                          <!-- Image -->
+                        </div>
+                      <div class="col-md-3 col-lg-3 col-xl-3">
+                        <p class="lead fw-normal mb-2">{{product.title}}</p>
+                        <p><span class="text-muted">Size: </span>M <span class="text-muted">Color: </span>Grey</p>
+                      </div>
+                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                        <h5 class="mb-0">${{product.price | number:'1.2-2'}}</h5>
+                      </div>
+                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                        <a (click)="removeCart(product)" class="text-black-50"><i class="fas fa-trash fa-lg"></i></a>
+                      </div>
+                    </div>
+                  </div>      
+                </div>
+              </ng-container> 
+            </div>
+            <div class="pt-4 mx-4 mb-4">    
+              <p><i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
+            </div>
+          </div>
+        </div>
+       
+        <!-- cart -->
+        <!-- summary -->
+        
+        <!-- summary -->
+      </div>
+    </div>
+    <div  *ngIf="!wishlistItems.length">
+      <ng-container >
+        <!-- <div class="card-body p-4" style="margin-left: 350px;">
+          <div class="row d-flex justify-content-between align-items-center">
+            <img src="assets/images/cart.png" alt="" width="10px" height="500px">
+          </div>
+        </div> -->
+        <div class="col-sm-12 empty-cart-cls text-center" >
+          <img src="assets/images/icon-empty-cart.png" class="img-fluid mb-4">
+          <h3><strong>Empty Wishlist</strong></h3>
+          <h4>You have no items in your wishlist. Start adding! :)</h4>
+          <a [routerLink]="'/'"  class="btn btn-light w-10 border mt-2"> Back to shop </a>
+      </div>
+      </ng-container>
+      
+    </div>
+  </section>

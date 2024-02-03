@@ -1,0 +1,253 @@
+<section class="padding-y mt-4" *ngIf="product">
+  <div class="container">
+    <div class="row" >
+      <aside class="col-lg-6">
+        <article class="gallery-wrap">
+          <div class="img-big-wrap img-thumbnail" >
+            <a data-fslightbox="mygalley" data-type="image"  >
+              <ngx-img-zoom
+                [zoomImageSrc]="product.image"
+                [previewImageSrc]="product.image"
+                [imgStyle]="
+            'width:625px; height:560px; bottom:0;  left:0;  right:0;  top:0;  margin:0 auto; border:1px solid #dcdcdc;'
+              "
+                [resultStyle]="
+                'width:500px; height:500px; background-repeat: no-repeat; z-index: 2; position:absolute;-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); top: 0;left: 100%;'"
+              
+               [enableZoom] = "enableZoom"
+              [containerStyle]=""
+              
+   
+              ></ngx-img-zoom>
+              <!-- <img height="560" width="625" src="{{product.image}}"> -->
+            </a>
+          </div> <!-- img-big-wrap.// -->
+          <div class="thumbs-wrap">
+            <a data-fslightbox="mygalley" data-type="image" href="assets/images/T-shirt.jpg" class="item-thumb">
+              <img width="60" height="60" src="assets/images/T-shirt.jpg">
+            </a>
+            <a data-fslightbox="mygalley" data-type="image" href="assets/images/T-shirt.jpg" class="item-thumb">
+              <img width="60" height="60" src="assets/images/T-shirt.jpg">
+            </a>
+            <a data-fslightbox="mygalley" data-type="image" href="assets/images/T-shirt.jpg" class="item-thumb">
+              <img width="60" height="60" src="assets/images/T-shirt.jpg">
+            </a>
+            <a data-fslightbox="mygalley" data-type="image" href="assets/images/T-shirt.jpg" class="item-thumb">
+              <img width="60" height="60" src="assets/images/T-shirt.jpg">
+            </a>
+            <a data-fslightbox="mygalley" data-type="image" href="assets/images/T-shirt.jpg" class="item-thumb">
+              <img width="60" height="60" src="assets/images/T-shirt.jpg">
+            </a>
+          </div> <!-- thumbs-wrap.// -->
+        </article> <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6">
+        <article class="ps-lg-3">
+          <h4 class="title text-dark"> {{product.title}} </h4>
+          <div class="rating-wrap my-3">
+           
+            <b class="label-rating text-warning"> 4.5</b>
+            <i class="dot"></i>
+            <span class="label-rating text-muted"> <i class="fa fa-shopping-basket"></i> 154 orders </span>
+            <i class="dot"></i>
+            <span class="label-rating text-success">In stock</span>
+          </div> <!-- rating-wrap.// -->
+
+          <div class="mb-3">
+            <var class="price h5">{{product.price}}</var>
+            <span class="text-muted">/per item</span>
+          </div>
+
+          <p>{{product.description}}</p>
+
+          <dl class="row">
+            <dt class="col-3">Type:</dt>
+            <dd class="col-9">Regular</dd>
+
+            <dt class="col-3">Color</dt>
+            <dd class="col-9">Brown</dd>
+
+            <dt class="col-3">Material</dt>
+            <dd class="col-9">Cotton, Jeans </dd>
+          </dl>
+
+          <hr>
+
+          <div class="row mb-4">
+            <div class="col-md-4 col-6 mb-2">
+              <label class="form-label">Size</label>
+              <select class="form-select">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+              </select>
+            </div> <!-- col.// -->
+           
+          </div> <!-- row.// -->
+          <div class="justify-content-center">
+            <!-- <button type="button"(click)="buyNow(product,counter)"  class="btn btn-warning">PrimaryBuy now</button> -->
+            <a (click)="buyNow(product,counter)" class="btn text-center btn-warning"> Buy now </a>
+            <a [routerLink]="['/viewcart']" style="margin: 20px;" class="btn text-center   btn-primary"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+            <a href="" class="btn text-center  btn-light"> <i class="me-1 fa fa-heart"></i> Add WishList </a>
+          </div>
+
+        </article> <!-- product-info-aside .// -->
+      </main> <!-- col.// -->
+    </div> <!-- row.// -->
+
+  </div> <!-- container .//  -->
+</section>
+<!-- ============== SECTION CONTENT END// ============== -->
+
+<!-- ============== SECTION  ============== -->
+<section class="padding-y bg-light border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <!-- =================== COMPONENT SPECS ====================== -->
+        <div class="card">
+          <header class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a href="#" data-bs-target="#tab_specs" data-bs-toggle="tab" class="nav-link active">Specification</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" data-bs-target="#tab_warranty" data-bs-toggle="tab" class="nav-link">Warranty info</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" data-bs-target="#tab_shipping" data-bs-toggle="tab" class="nav-link">Shipping info</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" data-bs-target="#tab_seller" data-bs-toggle="tab" class="nav-link">Seller profile</a>
+              </li>
+            </ul>
+          </header>
+          <div class="tab-content">
+            <article id="tab_specs" class="tab-pane show active card-body">
+              <p>With supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+              <ul class="list-check cols-two">
+                <li>Some great feature name here </li>
+                <li>Lorem ipsum dolor sit amet, consectetur </li>
+                <li>Duis aute irure dolor in reprehenderit </li>
+                <li>Optical heart sensor </li>
+                <li>Easy fast and ver good </li>
+                <li>Some great feature name here </li>
+                <li>Modern style and design</li>
+              </ul>
+              <table class="table border table-hover">
+                <tr>
+                  <th> Display: </th>
+                  <td> 13.3-inch LED-backlit display with IPS </td>
+                </tr>
+                <tr>
+                  <th> Processor capacity: </th>
+                  <td> 2.3GHz dual-core Intel Core i5 </td>
+                </tr>
+                <tr>
+                  <th> Camera quality: </th>
+                  <td>720p FaceTime HD camera </td>
+                </tr>
+                <tr>
+                  <th> Memory </th>
+                  <td> 8 GB RAM or 16 GB RAM </td>
+                </tr>
+                <tr>
+                  <th> Graphics </th>
+                  <td> Intel Iris Plus Graphics 640 </td>
+                </tr>
+              </table>
+            </article> <!-- tab-content.// -->
+            <article id="tab_warranty" class="tab-pane card-body">
+              Tab content or sample information now <br>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            </article>
+            <article id="tab_shipping" class="tab-pane card-body">
+              Another tab content or sample information now <br>
+              Dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </article>
+            <article id="tab_seller" class="tab-pane card-body">
+              Some other tab content or sample information now <br>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </article>
+          </div>
+        </div>
+        <!-- =================== COMPONENT SPECS .// ================== -->
+      </div> <!-- col.// -->
+      <aside class="col-lg-4">
+        <!-- =================== COMPONENT ADDINGS ====================== -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Similar items</h5>
+
+            <article class="itemside mb-3">
+              <a href="#" class="aside">
+                <img src="" width="96" height="96" class="img-md img-thumbnail">
+              </a>
+              <div class="info">
+                <a href="#" class="title mb-1"> Rucksack Backpack Large <br> Line Mounts </a>
+                <strong class="price"> $38.90</strong> <!-- price.// -->
+              </div>
+            </article>
+
+            <article class="itemside mb-3">
+              <a href="#" class="aside">
+                <img src="" width="96" height="96" class="img-md img-thumbnail">
+              </a>
+              <div class="info">
+                <a href="#" class="title mb-1"> Summer New Men's Denim <br> Jeans Shorts </a>
+                <strong class="price"> $29.50</strong> <!-- price.// -->
+              </div>
+            </article>
+
+            <article class="itemside mb-3">
+              <a href="#" class="aside">
+                <img src="" width="96" height="96" class="img-md img-thumbnail">
+              </a>
+              <div class="info">
+                <a href="#" class="title mb-1"> T-shirts with multiple colors, for men and lady </a>
+                <strong class="price"> $120.00</strong> <!-- price.// -->
+              </div>
+            </article>
+
+            <article class="itemside mb-3">
+              <a href="#" class="aside">
+                <img src="" width="96" height="96" class="img-md img-thumbnail">
+              </a>
+              <div class="info">
+                <a href="#" class="title mb-1"> Blazer Suit Dress Jacket for Men, Blue color </a>
+                <strong class="price"> $339.90</strong> <!-- price.// -->
+              </div>
+            </article>
+
+          </div> <!-- card-body .// -->
+        </div> <!-- card .// -->
+        <!-- =================== COMPONENT ADDINGS .// ================== -->
+      </aside> <!-- col.// -->
+    </div>
+
+    <br><br>
+
+  </div><!-- container // -->
+</section>
+<!-- =============== SECTION  END// ============== -->

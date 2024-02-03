@@ -5,28 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './component/product/product.component';
 import { HeaderComponent } from './component/header/header.component';
+import { CartComponent } from './component/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewcartComponent } from './component/viewcart/viewcart.component';
-import { CheckoutComponent } from './component/checkout/checkout.component';
-import { ShowproductComponent } from './component/showproduct/showproduct.component';
-import { WishlistComponent } from './component/wishlist/wishlist.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SuccessComponent } from './component/success/success.component';
-import { NgxImgZoomModule } from 'ngx-img-zoom';
-import { CommanComponent } from './component/comman/comman.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     HeaderComponent,
-    ViewcartComponent,
-    CheckoutComponent,
-    ShowproductComponent,
-    WishlistComponent,
-    SuccessComponent,
-    CommanComponent,
+    CartComponent,
+    ViewcartComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +23,6 @@ import { CommanComponent } from './component/comman/comman.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgbModule,
-    NgxImgZoomModule
    
   ],
   providers: [],

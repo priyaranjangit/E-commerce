@@ -1,0 +1,142 @@
+.card-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: .25rem;
+}
+
+.item img {
+  width: 64px;
+}
+
+.item {
+  margin: 0px 15px;
+  text-align: center;
+}
+
+.item a:hover {
+  color: blue;
+}
+
+.card {
+  padding: 20px;
+  margin: 50px;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.custom-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.custom-button:hover {
+  background-color: darkred;
+}
+
+.heart-button {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: red;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.heart-button::before,
+.heart-button::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 32px;
+  background-color: red;
+  border-radius: 10px 10px 0 0;
+  transform: rotate(-45deg);
+  top: 0;
+  left: 10px;
+}
+
+.heart-button::after {
+  transform: rotate(45deg);
+  left: -10px;
+}
+
+.heart-button:hover {
+  background-color: darkred;
+}
+
+
+.wishlist-btn {
+  i {
+    border-left: none;
+    border-right: 1px solid #dddddd;
+    padding-left: 0;
+    margin-left: 0;
+    padding-right: 10px;
+    margin-right: 5px;
+  }
+
+  span {
+    padding-left: 0;
+    padding-right: 10px;
+  }
+}
+
+.hurtred {
+  color: red;
+}
+
+.hurtblack {
+  color: none;
+}
+/* Add general styles */
+.wishlist {
+  position: fixed;
+  // bottom: 30px;
+  // right: 30px;
+  background-color: #f00; /* You can adjust the color */
+  color: #fff; /* You can adjust the color */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Add the animation styles */
+.wishlist.clicked {
+  transform: scale(1.2);
+  background-color: #ff4500; /* You can adjust the color */
+}
