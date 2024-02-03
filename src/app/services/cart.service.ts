@@ -53,6 +53,11 @@ export class CartService {
 // 3rd time for git coomit chacke
 addtoCrd3(){
 console.log(`this time commit for git`);
+console.log(`yes this code is okk`);
+console.log(`yes this code is okk`);
+console.log(`yes this code is okk`);
+console.log(`yes this code is okk`);
+
 
 }
 
