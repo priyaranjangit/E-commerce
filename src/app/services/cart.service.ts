@@ -50,6 +50,12 @@ export class CartService {
     }
   }
 
+// 3rd time for git coomit chacke
+addtoCrd3(){
+console.log(`this time commit for git`);
+
+}
+
 // 2mera logivc
 // addToCart(product: any, quantity: number = 1){
 
