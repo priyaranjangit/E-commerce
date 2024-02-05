@@ -1,0 +1,23 @@
+From 5f6d9928e8d263e7afdd4c00e1b3bb99f385c9ac Mon Sep 17 00:00:00 2001
+From: = <=>
+Date: Sat, 3 Feb 2024 17:13:39 +0530
+Subject: cart services for git check
+
+
+diff --git a/src/app/services/cart.service.ts b/src/app/services/cart.service.ts
+index 3e9ec53..00444e1 100644
+--- a/src/app/services/cart.service.ts
++++ b/src/app/services/cart.service.ts
+@@ -50,6 +50,12 @@ export class CartService {
+     }
+   }
+ 
++// 3rd time for git coomit chacke
++addtoCrd3(){
++console.log(`this time commit for git`);
++
++}
++
+ // 2mera logivc
+ // addToCart(product: any, quantity: number = 1){
+ 
