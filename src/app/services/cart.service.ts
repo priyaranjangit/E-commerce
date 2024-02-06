@@ -54,16 +54,8 @@ export class CartService {
 addtoCrd3(){
 console.log(`this time commit for git`);
 console.log(`not properworking${4+6}`);
-console.log(`not properworking${4+6}`);
-console.log(`not properworking${4+6}`);
-console.log(`not properworking${4+6}`);
 console.log(`this new area git command`);
-
 console.log(10+30);
-
-
-
-
 
 }
 
