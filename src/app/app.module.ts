@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SuccessComponent } from './component/success/success.component';
 import { NgxImgZoomModule } from 'ngx-img-zoom';
 import { CommanComponent } from './component/comman/comman.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CommanComponent } from './component/comman/comman.component';
     WishlistComponent,
     SuccessComponent,
     CommanComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
