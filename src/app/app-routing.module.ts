@@ -12,8 +12,9 @@ import { CommanComponent } from './component/comman/comman.component';
 
 const routes: Routes = [
  
-  {path:'',redirectTo:'product',pathMatch:'full'},
-  {path:'product',component:ProductComponent},
+  // {path:'',redirectTo:'product',pathMatch:'full'},
+  {path:'',component:ProductComponent},
+  // {path:'product',component:ProductComponent},
   {path:'checkout',component:CheckoutComponent},
   {path:'viewcart',component:ViewcartComponent},
   {path:'showproduct/:id',component:ShowproductComponent},
