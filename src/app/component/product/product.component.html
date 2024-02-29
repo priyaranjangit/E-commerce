@@ -69,8 +69,12 @@
                
                 <!-- <i class="fa-solid fa-heart fa-beat"></i> -->
              
-                <a [routerLink]="['/showproduct',item.id]" target="_blank">
+                <!-- <a [routerLink]="['/showproduct',item.id]" target="_blank">
+                    
 
+                    <img src="{{item.image}}" class="pointer" alt="">
+                </a> -->
+              <a [routerLink]="['/showproduct',item.id]">
                     <img src="{{item.image}}" class="pointer" alt="">
                 </a>
                 <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
