@@ -39,6 +39,7 @@
                   </div>      
                 </div>
               </ng-container> 
+              <a [routerLink]="'/'"  class="btn btn-light w-10 border mt-2"> Back to shop </a>
             </div>
             <div class="pt-4 mx-4 mb-4">    
               <p><i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
@@ -52,7 +53,7 @@
         <!-- summary -->
       </div>
     </div>
-    <div  *ngIf="!wishlistItems.length">
+    <div  *ngIf="wishlistItems.length==0">
       <ng-container >
         <!-- <div class="card-body p-4" style="margin-left: 350px;">
           <div class="row d-flex justify-content-between align-items-center">

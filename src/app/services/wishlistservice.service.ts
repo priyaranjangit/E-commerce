@@ -5,8 +5,9 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class WishlistserviceService {
-  products = JSON.parse(localStorage.getItem("wishlistItem")) || [];
+  products:any = localStorage.getItem("wishList")|| [];
   constructor() { }
+
   getItems(): Observable<any[]> {
     return of(this.products);
   }
@@ -22,20 +23,44 @@ export class WishlistserviceService {
   // }
 
   addToWishlist(product: any) {
-    if (!this.hasProducts(product)) {
-      this.products.push(product);
-      localStorage.setItem("wishlistItem", JSON.stringify(this.products));
+      product.wishList= true
+    localStorage.setItem("addWishList_"+ this.products.id,'true');
+    this.products.push(product);
+    localStorage.setItem("wishList", JSON.stringify(this.products));
+    // if (!this.hasProducts(product)) {
+    //   localStorage.setItem("addWishList_"+ this.products.id,'true');
+    //   this.products.push(product);
+    //   localStorage.setItem("wishList", JSON.stringify(this.products));
+    //   // localStorage.setItem('addWishList_'+item.id, 'true');
+    //   console.log('cartserice',this.products);
+    // } else {
      
-    } else {
-     
-    }
+    // }
+  
   }
 
   removeFromWishlist(product: any) {
+    localStorage.setItem("addWishList_"+ product.id,'false');
     let index = this.products.indexOf(product);
+    // this.products.wishList=false
+    // this.products.splice(index, 1);
+    // localStorage.removeItem("wishList");
+    console.log('remove,',product);
+    // let index = this.products.indexOf(item)
     if (index > -1) {
-      this.products.splice(index, 1);
-      localStorage.setItem("wishlistItem", JSON.stringify(this.products));
+      // localStorage.setItem("cartItem", JSON.stringify(this.productsItems))
+      this.products.splice(index, 1)
+      localStorage.setItem("wishList", this.products)
+      console.log('remove work work222');
     }
+    // this.wishListService.removeFromWishlist(product)
+    // localStorage.setItem('addWishList'+product.id, 'false'); 
+    // if (index > -1) {
+    //   this.products.wishList=false
+    //   this.products.splice(index, 1);
+    //   localStorage.setItem("wishlistItem_"+ this.products.id,'false');
+    //   // localStorage.removeItem("wishList");
+    //   console.log('remove,',product);
+    // }
   }
 }

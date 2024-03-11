@@ -46,7 +46,7 @@ export class ShowproductComponent implements OnInit {
 
   buyNow(product:any,quntity:number=1){
     if(quntity>0){
-      this.cartService.addToCart(product,quntity)
+      // this.cartService.addToCart(product,quntity)
       this.router.navigate(['/checkout'])
 
     }

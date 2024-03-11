@@ -8,6 +8,7 @@ import { ShowproductComponent } from './component/showproduct/showproduct.compon
 import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { SuccessComponent } from './component/success/success.component';
 import { CommanComponent } from './component/comman/comman.component';
+import { NextviewcartComponent } from './nextviewcart/nextviewcart.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   // {path:'product',component:ProductComponent},
   {path:'checkout',component:CheckoutComponent},
   {path:'viewcart',component:ViewcartComponent},
+  {path:'nextviewcart',component:NextviewcartComponent},
   {path:'showproduct/:id',component:ShowproductComponent},
   {path:'wishlist',component:WishlistComponent},
   {path:'success',component:SuccessComponent},

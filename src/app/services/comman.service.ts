@@ -18,6 +18,7 @@ private allProduct():Observable<any>{
 
   getProduct():Observable<any>{
     return this.allProduct()
+    
 
   }
 
@@ -36,5 +37,16 @@ private allProduct():Observable<any>{
     };
 
     return this.http.post(url, body, option);
+  }
+
+  findMatchingItemsWithIndex(arr1: any[], arr2: any[]): { item: any, index1: number, index2: number }[] {
+    const matchingItemsWithIndex = [];
+    arr1.forEach((item, index) => {
+      const matchingIndex = arr2.indexOf(item);
+      if (matchingIndex !== -1) {
+        matchingItemsWithIndex.push({ item: item, index1: index, index2: matchingIndex });
+      }
+    });
+    return matchingItemsWithIndex;
   }
 }

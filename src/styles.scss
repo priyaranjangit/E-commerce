@@ -2,3 +2,89 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+*{
+    padding: 0%;
+
+}
+
+// .toast-success {
+//     /* Adjust width and height */
+//     width: 10px;
+//     height: 60px;
+//     /* Adjust font size and padding */
+//     font-size: 13px;
+//     padding: 8px;
+//     color: #888a7c;
+//     background-color: #f44336;
+//   }
+//   .toast {
+//     font-size: 14px;
+//     /* You can adjust other properties such as width, height, padding, etc. */
+//   }
+  
+  /* Adjust the background color of the toast */
+ 
+  .toast-error {
+    background-color: #f44336; /* Red color */
+  }
+  
+  /* Adjust the text color of the toast */
+  .toast-message {
+    color: #ffffff; /* White color */
+  }
+
+  .custom-toast .icon {
+    /* Adjust the size of the icon */
+    font-size: 24px;
+    /* Adjust the color of the icon */
+    color: rgb(160, 236, 160);
+  }
+
+  .toast-success {
+    background-color: #544caf; /* Green color */
+  }
+  
+  .toast-error {
+    background-color: #f44336; /* Red color */
+  }
+  
+  /* Customize text color */
+  .toast-message {
+    color: #ffffff; /* White color */
+  }
+  .md-toast.success {
+    background-color: rgb(0, 2, 128);
+}
+
+  .toast-container .ngx-toastr {
+    margin-top: 6px !important;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 15px 15px 150px 500px;
+    width: 600px !important;
+    // border-radius: 15px !important;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    // box-shadow: 0 0 12px #999;
+    color: #1ad2e2;
+    // border: 4px solid green !important;
+}
+// .toast-success{
+//     background-color: rgb(72, 195, 72) !important;
+//     width: 600px !important;
+//     // color: #f44336 !important;
+// }
+.toast-remove{
+    background-color: rgb(115, 72, 195) !important;
+    width: 600px !important;
+    // color: #f44336 !important;
+}
+// .toast-title{
+//     color: whitesmoke !important;
+//     // font-size: 16px !important;
+//   }
+//   .toast-message{
+//     color:whitesmoke !important;
+//   }

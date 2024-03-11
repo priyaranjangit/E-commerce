@@ -1,3 +1,5 @@
+<ngx-ui-loader></ngx-ui-loader>
+
 <div class="card-top container-fluid">
     <div class="container d-flex">
         <div class="item">
@@ -24,58 +26,31 @@
                     src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50"
                     alt="">
                 <h6>Jewllery</h6>
+                
             </a>
         </div>
     </div>
 </div>
 
 
-<div class="container">
+
+<div class="container" ngxUiLoaderBlurred>
     <div class="row">
-        <!-- <ng-container *ngFor="let item of filterCategory | filter:searchKey:'title'">
+
+        <ng-container *ngFor="let item of allIteam">
             <div class="card col-md-3">
-                <img src="{{item.image}}" alt="">
-                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">item.title</h5>
-                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">item.description</p>
-                <p><strong>Price:</strong> ${{item.price}}</p>
-                <button class="btn btn-primary" (click)=addtocart(item)>Add to cart</button>
-            </div>
-        </ng-container> -->
-        <!-- <div>
 
-        </div> -->
-        <ng-container *ngFor="let item of productData">
-            <div class="card col-md-3" >
-                <!-- <i class="far fa-heart " style="margin-left: 275px;" 
-                (click)="addEvent($event)" [ngStyle]="{ 'background-color': true ? 'red' : '#000' }"></i> -->
-                <!-- <div class="border-product">
-                    <div class="product-icon">
-                        <form class="d-inline-block">
-                            <button class="wishlist-btn" (click)="addToWishlist(item)" ><i class="fa fa-heart"></i><span
-                                    class="title-font">
-                                    Add To WishList</span></button>
-                        </form>
-                    </div>
-                </div> -->
-                <!-- <button class="wishlist-btn" (click)="addToWishlist(item)" ><i class="fa fa-heart"></i><span
-                    class="title-font">
-                    Add To WishList</span></button> -->
-                <i class="far fa-heart " style="margin-left: 275px; cursor: pointer;" (click)=addToWishlist(item)></i>
-                <!-- [style.color]="currentColor" (click)="changeColor()">Click me to change color -->
-                <!-- <i class="far fa-heart  wishlist" [class.clicked]="isClicked" (click)=addToWishlist(item)></i> -->
-                <!-- <div class="wishlist"  (click)=addToWishlist(item) [class.clicked]="isClicked">
-                    <i class="fa fa-heart"></i>
-                  </div> -->
-               
-                <!-- <i class="fa-solid fa-heart fa-beat"></i> -->
-             
-                <!-- <a [routerLink]="['/showproduct',item.id]" target="_blank">
-                    
-
-                    <img src="{{item.image}}" class="pointer" alt="">
-                </a> -->
-              <a [routerLink]="['/showproduct',item.id]">
-                    <img src="{{item.image}}" class="pointer" alt="">
+              <button class="btn" (click)="GoToWish(item)">go to wishlist</button>
+              
+                  <span  *ngIf="item.wishList===true">
+                      <i class='circle fa fa-heart' style="margin-left: 275px; cursor: pointer; color: red;"(click)=addToWish(item) ></i>
+                  </span>
+            
+                <span *ngIf="item.wishList===false">
+                    <i class="far fa-heart " style="margin-left: 275px; cursor: pointer;" (click)=addToWish(item)></i>
+                </span>
+                <a [routerLink]="['/showproduct',item.id]">
+                    <img style="margin-top: 10px;" src="{{item.image}}" class="pointer" alt="">
                 </a>
                 <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
                     {{item.title}}</h5>
@@ -84,36 +59,46 @@
                 <p><strong>Price:</strong> ${{item.price}}</p>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
-                            <!-- <p>{{ btnText === 'yes' ? 'Yes' : 'No' }}</p> -->
-                            <p></p>
-                            <!-- <button *ngIf="true" class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>ByNow</button>
-                            <button  *ngIf="false" class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>Add To Card</button> -->
-                            <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>{{ resultMessage }}</button>
-                            <!-- <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart1(item)>Addnew</button> -->
-                            <!-- <ng-container *ngFor="let data of matchedValues">
-                                {{data.id}}
-
-                            </ng-container> -->
-                            <!-- {{  matchedValues.id == item.id ? 'Match found' : 'No match found' }} -->
-                            <!-- {{item.id}} {{matchedValues.id }} -->
+                        <!-- <button (click)="showToast()">Show Toast</button> -->
+                        <div class="col-md-6" *ngIf="item.addedToCart===false">
+                            <!-- addedToCart -->
+                            <!-- <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>{{ item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}</button> -->
+                            <button class="btn btn-success w-100 shadow-0 mb-2"   (click)=addtocart(item)>
+                                {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
+                            </button>
                         </div>
-                        <div class="col-md-6 "  >
-                            <!-- {{item}} -->
-                            <!-- <ng-container *ngFor="let item of elementData">
-                                {{item}}
-                            </ng-container> -->
-                            <!-- <a (click)="buyNow(item)" class="btn text-center btn-warning"> Buy now </a> -->
-                            <!-- <p>Match: {{ matchResult }}</p> -->
-                            <!-- <span *ngFor="let data of storageItems">
-                                <p>Match: {{data.product.id===item.id ? 'Yes' : '' }}</p>
-                            </span> -->
+                        <div class="col-md-6" *ngIf="item.addedToCart===true">
+                            <!-- addedToCart -->
+                            <!-- <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>{{ item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}</button> -->
+                            <button class="btn btn-gotocart w-100 shadow-0 mb-2" [routerLink]="'viewcart'">
+                                {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
+                            </button>
+                        </div>
+                        <div class="col-md-6 ">
+
                         </div>
                     </div>
                 </div>
             </div>
         </ng-container>
-
-        data:shoert{{matchedValues}}
     </div>
 </div>
+
+
+<!-- <div>
+    <h2>Matched Data</h2>
+    <ul>
+      <li *ngFor="let item of matchedItems">{{ item.id }}</li>
+    </ul>
+  </div> -->
+<!-- <div>
+    <h2>Matched Data</h2>
+    <ul>
+      <li *ngFor="let item1 of allIteam">
+        <span *ngIf="addCartData.find(item2 => item2.id === item1.id)">
+        </span>
+      </li>
+    </ul>
+  </div> -->
+  
+  

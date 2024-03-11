@@ -140,3 +140,22 @@
   transform: scale(1.2);
   background-color: #ff4500; /* You can adjust the color */
 }
+
+// .md-toast-success {
+//   background-color: #2bbbad !important
+// }
+.btn-gotocart{
+  background-color: #ff9f00;
+}
+
+
+.circle {
+  width: 25px; /* Adjust size as needed */
+  height: 25px; /* Adjust size as needed */
+  background-color: #000000;
+  border-radius: 50%;
+  border: 2px solid #000000; /* Border color similar to Flipkart wishlist logo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
