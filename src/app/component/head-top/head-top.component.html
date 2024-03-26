@@ -1,0 +1,80 @@
+<div class="container-fluid sticky-header" [class.sticky]="isSticky">
+    <div class="row">
+        <div class="col-9">
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="row col-12">
+                                <i class="fas fa-solid fa-magnet fa-2x"></i>
+                            </div>
+                            <span>
+
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-11">
+                        <div class="form-group has-search">
+                            <span class="fa fa-search form-control-feedback"></span>
+                            <input type="text" class="form-control" placeholder="Search Product">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-8">
+                    <ul class="drop-brand">
+
+
+                        <li class="nav-item dropdown" *ngIf="userDetails; else elseblock">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <!-- <i class="fas-solid fa-circle-user"></i> -->
+                                <i class="fas fa-user-circle fa-lg pe-2"></i>
+                                <span> <b>{{userDetails ?userDetails.firstName+userDetails.lastName:"Login"}}</b></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li> -->
+                                <li class="margin-dropdown"><a class="dropdown-item" href="#"> <i
+                                            class="fas fa-user-alt pe-2"></i>My Profile</a></li>
+                                <li class="margin-dropdown"><a class="dropdown-item" href="#"> <i
+                                            class="fas  fa-heart pe-2"></i>WishList</a></li>
+                                <li class="margin-dropdown"><a class="dropdown-item" href="#"><i
+                                            class="fas solid fa-box pe-2"></i>Order</a></li>
+                                <li class="margin-dropdown"><a class="dropdown-item" href="#"><i
+                                            class="fas solid fa-tag pe-2"></i>Coupons</a></li>
+                                <li class="margin-dropdown"><a class="dropdown-item" href="#"> <i
+                                            class="fa fa-cog fa-spin"></i>
+                                        Settings</a></li>
+                                <li class="margin-dropdown"><a class="dropdown-item " style="cursor: pointer;"
+                                        (click)="logOut()"> <i class="fas fa-power-off pe-2"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                        <ng-template #elseblock>
+                            <a class="dropdown-item" [routerLink]="'login'">
+                                <i class="fas fa-power-off pe-2"> </i>
+                                <b>
+                                    Login
+                                </b>
+                            </a>
+                        </ng-template>
+                    </ul>
+                </div>
+                <div class="col-3 drop-brand">
+                    <a class="anchor-coustm" [routerLink]="'viewcart'">
+                        <i class="fas fa-cart-plus fa-lg">
+                            <div style="font-size: 10px;" class="badge bg-danger">{{totalCartIteam.length}}</div>
+                        </i>
+                    </a>
+                </div>
+                <div class="col-1 drop-brand">
+                    <a class="dropdown-item" href="#"> <i class="fa fa-ellipsis-v pe-2" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

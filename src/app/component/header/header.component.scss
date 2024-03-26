@@ -1,7 +1,10 @@
 .form-control {
     border-radius: 3px;
-    width: 600px;
+    width: 800px;
     margin-left: 20px;
+}
+header{
+    margin-bottom: -15px;
 }
 
 .search-icon {
@@ -11,18 +14,44 @@
     top: 20px;
     color: rgb(255, 149, 0);
 }
-.hedder-yollow{
- background-color: blanchedalmond;
- padding: 23px;   
+
+.hedder-yollow {
+    background-color: blanchedalmond;
+    padding: 23px;
 }
+
 .circle {
-    width: 25px; /* Adjust size as needed */
-    height: 25px; /* Adjust size as needed */
+    width: 25px;
+    /* Adjust size as needed */
+    height: 25px;
+    /* Adjust size as needed */
     background-color: #000000;
     border-radius: 50%;
-    border: 2px solid #000000; /* Border color similar to Flipkart wishlist logo */
+    border: 2px solid #000000;
+    /* Border color similar to Flipkart wishlist logo */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
+}
+
+ul {
+    list-style: none;
+}
+
+.dropdown-menu {
+    animation: 0.5s slideup;
+}
+
+.margin-dropdown {
+    margin-top: 10px
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(10%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

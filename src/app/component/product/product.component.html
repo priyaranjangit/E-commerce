@@ -1,86 +1,160 @@
 <ngx-ui-loader></ngx-ui-loader>
 
-<div class="card-top container-fluid">
-    <div class="container d-flex">
+<div class="card-top container-fluid ">
+    <div class="container-fluid d-flex">
         <div class="item">
             <a>
                 <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
-                <h6>All products</h6>
+                <h6 style="font-size: 14px;">All products</h6>
             </a>
         </div>
         <div class="item">
             <a>
                 <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
-                <h6>Electronics</h6>
+                <h6 style="font-size: 14px;">Electronics</h6>
             </a>
         </div>
         <div class="item">
             <a>
                 <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="">
-                <h6>Fashion</h6>
+                <h6 style="font-size: 14px;">Fashion</h6>
             </a>
         </div>
         <div class="item">
             <a>
-                <img style="width: 62px; margin-top: 5px;"
+                <img style="width: 15px; margin-top: 5px;"
                     src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50"
                     alt="">
-                <h6>Jewllery</h6>
-                
+                <h6 style="font-size: 14px;">Jewllery</h6>
+
             </a>
         </div>
     </div>
 </div>
 
 
-
+<app-set-slider></app-set-slider>
 <div class="container" ngxUiLoaderBlurred>
     <div class="row">
+        <div class="col-md-1">
+            <!-- <h2>hello</h2> -->
+            <app-set-horz-slider></app-set-horz-slider>
+        </div>
+        <!-- <app-set-horz-slider></app-set-horz-slider> -->
+        <div class="col-md-11">
+            <div class="container">
+                <div class="row">
+                    <ng-container *ngFor="let item of allIteam let i = index">
+                        <div class="col-md-3">
+                            <div class="card effect-2 " style="width: 18rem;height: 25rem ;">
+                                <span *ngIf="item.wishList===true">
+                                    <i class='circle fa fa-heart' style="margin-top: 1px; cursor: pointer; color: red;"
+                                        (click)=addToWish(item)></i>
+                                </span>
+                                <span *ngIf="item.wishList===false">
+                                    <i class="far fa-heart " style="cursor: pointer;" (click)=addToWish(item)></i>
+                                </span>
+                                <a [routerLink]="['/showproduct',item.id]">
+                                    <img class="pointer card-img" src="{{item.image}}" alt="">
+                                </a>
+                                <div class="card-body" style="padding: 0px">
+                                    <h6 class="card-title" style="text-align: center;">{{item.title |truncate:5 }}</h6>
+                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    <!-- <span>review{{item.rating.count}}</span> -->
+                                    <div class="text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+                                            class="icon icon-star" viewBox="0 0 24 24" width="14" height="14">
+                                            <path
+                                                d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z"
+                                                fill="#FFB503"></path>
+                                        </svg>
+                                        <span>{{item.rating.rate}}</span>
+                                        <p></p>
+                                        <svg viewBox="0 0 18 18" class="icon icon-whatsapp-verified" height="14"
+                                            width="14" preserveAspectRatio="xMidYMid meet" version="1.1" x="0px" y="0px"
+                                            enable-background="new 0 0 18 18" xml:space="preserve">
+                                            <polygon id="Star-2" fill="#005eff"
+                                                points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9 ">
+                                            </polygon>
+                                            <polygon id="Check-Icon" fill="#FFFFFF"
+                                                points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4 "></polygon>
+                                        </svg>
+                                        <span aria-hidden="true">({{item.rating.count}} Reviews)</span>
+                                    </div>
+                                    <h4 class="card-text text-center">${{item.price}}</h4>
+                                </div>
 
-        <ng-container *ngFor="let item of allIteam">
-            <div class="card col-md-3">
+                                <!-- <button type="button" class="btn btn-primary" (click)=addToWish(item) [disabled]="loading">
+                                <span *ngIf="!loading">Click Me</span>
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loading...
+                              </button> -->
+                                <div class="row">
+                                    <div class="col-md-12" *ngIf="item.addedToCart===false">
+                                        <button class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item,i)
+                                            [disabled]="loadingStates[i]">
 
-              <button class="btn" (click)="GoToWish(item)">go to wishlist</button>
-              
-                  <span  *ngIf="item.wishList===true">
-                      <i class='circle fa fa-heart' style="margin-left: 275px; cursor: pointer; color: red;"(click)=addToWish(item) ></i>
-                  </span>
-            
-                <span *ngIf="item.wishList===false">
-                    <i class="far fa-heart " style="margin-left: 275px; cursor: pointer;" (click)=addToWish(item)></i>
-                </span>
-                <a [routerLink]="['/showproduct',item.id]">
-                    <img style="margin-top: 10px;" src="{{item.image}}" class="pointer" alt="">
-                </a>
-                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
-                    {{item.title}}</h5>
-                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
-                    {{item.description}}</p>
-                <p><strong>Price:</strong> ${{item.price}}</p>
-                <div class="container">
-                    <div class="row">
-                        <!-- <button (click)="showToast()">Show Toast</button> -->
-                        <div class="col-md-6" *ngIf="item.addedToCart===false">
-                            <!-- addedToCart -->
-                            <!-- <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>{{ item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}</button> -->
-                            <button class="btn btn-success w-100 shadow-0 mb-2"   (click)=addtocart(item)>
-                                {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
-                            </button>
+                                            <i class="fas fa-spinner fa-pulse" *ngIf="loadingStates[i]"></i>
+
+                                            <!-- <span *ngIf="!loadingStates[i]"></span> -->
+                                            <!-- <span *ngIf="loadingStates[i]">
+                                          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        </span>  -->
+                                            {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
+                                        </button>
+                                    </div>
+                                    <div class="col-md-12" *ngIf="item.addedToCart===true">
+                                        <button class="btn btn-gotocart w-100 shadow-0 mb-2" [routerLink]="'viewcart'">
+                                            {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6" *ngIf="item.addedToCart===true">
-                            <!-- addedToCart -->
-                            <!-- <button  class="btn btn-success w-100 shadow-0 mb-2" (click)=addtocart(item)>{{ item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}</button> -->
-                            <button class="btn btn-gotocart w-100 shadow-0 mb-2" [routerLink]="'viewcart'">
-                                {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
-                            </button>
-                        </div>
-                        <div class="col-md-6 ">
+                    </ng-container>
+                </div>
+            </div>
+        </div>
 
+        <!-- <ng-container *ngFor="let item of allIteam">
+                <div class="card col-2">
+                  <button class="btn" (click)="GoToWish(item)">go to wishlist</button>
+                      <span  *ngIf="item.wishList===true">
+                          <i class='circle fa fa-heart' style="margin-left: 275px; cursor: pointer; color: red;"(click)=addToWish(item) ></i>
+                      </span>
+                
+                    <span *ngIf="item.wishList===false">
+                        <i class="far fa-heart " style="margin-left: 275px; cursor: pointer;" (click)=addToWish(item)></i>
+                    </span>
+                    <a [routerLink]="['/showproduct',item.id]">
+                        <img style="margin-top: 10px;" src="{{item.image}}" class="pointer" alt="">
+                    </a>
+                    <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                        {{item.title}}</h5>
+                    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                        {{item.description}}</p>
+                    <p><strong>Price:</strong> ${{item.price}}</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6" *ngIf="item.addedToCart===false">
+                                <button class="btn btn-success w-100 shadow-0 mb-2"   (click)=addtocart(item)>
+                                    {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
+                                </button>
+                            </div>
+                            <div class="col-md-6" *ngIf="item.addedToCart===true">
+                                <button class="btn btn-gotocart w-100 shadow-0 mb-2"  [routerLink]="'viewcart'">
+                                    {{item.addedToCart ? 'Go to Cart' : 'Add to Cart' }}
+                                </button>
+                            </div>
+                            <div class="col-md-6 ">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </ng-container>
+        </ng-container> -->
     </div>
 </div>
 
@@ -100,5 +174,3 @@
       </li>
     </ul>
   </div> -->
-  
-  

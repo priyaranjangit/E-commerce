@@ -7,16 +7,11 @@ import { ProductComponent } from './component/product/product.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ViewcartComponent } from './component/viewcart/viewcart.component';
-import { CheckoutComponent } from './component/checkout/checkout.component';
-import { ShowproductComponent } from './component/showproduct/showproduct.component';
-import { WishlistComponent } from './component/wishlist/wishlist.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SuccessComponent } from './component/success/success.component';
 import { NgxImgZoomModule } from 'ngx-img-zoom';
 import { CommanComponent } from './component/comman/comman.component';
 import { FooterComponent } from './component/footer/footer.component';
-import { NextviewcartComponent } from './nextviewcart/nextviewcart.component';
+// import { NextviewcartComponent } from './nextviewcart/nextviewcart.component';
 import { ToastrModule } from 'ngx-toastr';
 // import { NgxUiLoaderModule } from "ngx-ui-loader";
 import {
@@ -28,6 +23,12 @@ import {
   NgxUiLoaderRouterModule,
   NgxUiLoaderHttpModule
 } from 'ngx-ui-loader';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { ShopModule } from './shop/shop.module';
+import { HeadTopComponent } from './component/head-top/head-top.component';
+import { TruncatePipe } from './pipe/truncate.pipe';
+import { SetSliderComponent } from './component/set-slider/set-slider.component';
+import { SetHorzSliderComponent } from './component/set-horz-slider/set-horz-slider.component';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: 'red',
   // bgsOpacity: 0.5,
@@ -63,16 +64,21 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     AppComponent,
     ProductComponent,
     HeaderComponent,
-    ViewcartComponent,
-    CheckoutComponent,
-    ShowproductComponent,
-    WishlistComponent,
-    SuccessComponent,
+    // ViewcartComponent,
+    // CheckoutComponent,
+    // ShowproductComponent,
+    // WishlistComponent,
+    // SuccessComponent,
     CommanComponent,
     FooterComponent,
+    HeadTopComponent,
+    TruncatePipe,
+    SetSliderComponent,
+    SetHorzSliderComponent,
     // NextviewcartComponent,
   ],
   imports: [
+    
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -83,6 +89,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     NgxImgZoomModule,
     NgxUiLoaderModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+
     // ToastrModule.forRoot({
     //   positionClass: 'toast-bottom-center', // Position to display toasts at the bottom center
     // }),

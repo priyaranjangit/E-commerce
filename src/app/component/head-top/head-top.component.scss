@@ -1,0 +1,94 @@
+.coustm{
+    margin: 0px;
+    padding: 0px;
+}
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+ul {
+    list-style: none;
+}
+
+.dropdown-menu {
+    animation: 0.5s slideup;
+}
+
+.margin-dropdown {
+    margin-top: 10px
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(10%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+.drop-brand{
+    margin-top: 10px;
+    /* margin-right: 75px; */
+    padding-left: 0px;
+    display: inline-block;
+}
+.cart-length-color{
+    color: black;
+    font-size: 18px;
+    background-color:red;
+    border-radius: 100%;
+    width: 50px;
+}
+
+.anchor-coustm{
+    color: rgb(0, 0, 0);
+}
+.sticky-header {
+    position: relative;
+    z-index: 1000;
+    background-color: rgba(236, 148, 60, 0.8); /* Adjust as needed */
+    transition: top 0.3s ease;
+}
+
+.sticky {
+    opacity: 10;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(204, 16, 16, 0.1); /* Add shadow when sticky */
+    // opacity: 0.3;
+  }
+// .sticky-header {
+//     position: fixed;
+//     // top: -80px; /* Moves the header above the viewport */
+//     left: 0;
+//     width: 100%;
+//     z-index: 1000;
+//     background-color: #ffffff; /* Adjust as needed */
+//     transition: top 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+//   }
+  
+//   .sticky-header.sticky {
+//     top: 0; /* Stick to the top of the viewport */
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow when sticky */
+//   }

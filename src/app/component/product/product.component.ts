@@ -4,7 +4,7 @@ import { filter } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { CommanService } from 'src/app/services/comman.service';
 import { WishlistserviceService } from 'src/app/services/wishlistservice.service';
-import { trigger, transition,state, style, animate } from '@angular/animations';
+import { trigger, transition, state, style, animate } from '@angular/animations';
 // import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import {
@@ -34,7 +34,7 @@ import { Wishlist2Service } from 'src/app/services/wishlist2.service';
 
 export class ProductComponent implements OnInit {
   productData: any[] = [];
-  isClicked = false;
+  loading = false;
   storageItems: any[] = [];
   // productsItems: any[]=[];
   isActive: boolean = true;
@@ -50,77 +50,86 @@ export class ProductComponent implements OnInit {
   dontmatch: boolean;
   isConditionMatched: boolean = true;
   resultMessage: string;
-  addCartData=JSON.parse(localStorage.getItem("cartItem"));
+  addCartData = JSON.parse(localStorage.getItem("cartItem"));
   // addedToCart: boolean=false
   valueId: 5;
   // matchedItems:any = [];
   animationState: string = 'initial';
+  loadingStates: boolean[] = [];
+  isLoading: boolean = true;
 
   constructor(private commanService: CommanService, private cartService: CartService,
     private wishListService: WishlistserviceService,
     private router: Router,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrService,
-    private wishlist2:Wishlist2Service) {
-
-  }
-
-  ngOnInit(): void {
-   
-
+    private wishlist2: Wishlist2Service) {
+      
+    }
+    
+    ngOnInit(): void {
+      this.commanService.getProduct().subscribe((res)=>{
+        console.log(res);
+      })
     // Method to trigger animation
-   
+
     // debugger
     // localStorage.setItem('checklocalData', 'true');
     // console.log('checklocalData',(localStorage.getItem() ));
-    
+
     this.ngxLoader.start();
     this.commanService.getProduct().subscribe((res) => {
-      this.allIteam = res.map((product)=>{
-        return ({...product,addedToCart: localStorage.getItem('addCartItem_' + product.id) === 'true' ,wishList:localStorage.getItem('addWishList_' + product.id) === 'true'})})
+      
+      this.allIteam = res.map((product) => {
+        return ({ ...product, addedToCart: localStorage.getItem('addCartItem_' + product.id) === 'true', wishList: localStorage.getItem('addWishList_' + product.id) === 'true' })
+      })
+      this.loadingStates = new Array(this.allIteam.length).fill(false);
       // let mapdata=res.map(product=>{
       //  return (Object.assign({},product,{cartdata:false}))
       // })
       // console.log('maping data',mapdata);
-      
-      this.ngxLoader.stop(); 
-      console.log('addcartItam',this.allIteam);
+      this.ngxLoader.stop();
+      console.log('addcartItam', this.allIteam);
     });
   }
 
 
-  addtocart(item: any) {
-    this.cartService.addToCart(item);  
-    localStorage.setItem('addCartItem_'+item.id, 'true');
-    item.addedToCart= true
-    console.log('PraticularData',item);
-    this.toastr.success(`Your product ${item.title} Added in CartItem!`, 'Success');
-    
+  addtocart(item: any,index) {
+    this.loadingStates[index] = true;
+    this.loading = true;
+    setTimeout(() => {
+      this.loadingStates[index] = false;
+      this.cartService.addToCart(item);
+      localStorage.setItem('addCartItem_' + item.id, 'true');
+      item.addedToCart = true
+      console.log('PraticularData', item);
+      this.toastr.success(`Your product ${item.title} Added in CartItem!`, 'Success');
+    }, 800);
+
   }
 
   addToWish(item: any) {
-    console.log('item',item);
-    
+    console.log('item', item);
     // debugger
-    if(!item.wishList){
+    if (!item.wishList) {
+      this.toastr.success(`Your product ${item.title} Added in wishList!`, 'Success');
       item.wishList = true
-      localStorage.setItem('addWishList_'+item.id, 'true');
+      localStorage.setItem('addWishList_' + item.id, 'true');
       this.wishListService.addToWishlist(item)
       // localStorage.setItem("wishlistItem", JSON.stringify(item));
-      console.log('addToWishElse',item);
+      console.log('addToWishElse', item);
     }
-    else{
-      item.wishList=false
-      localStorage.setItem('addWishList_'+item.id, 'false');
-      console.log('addToWishElse',item);
+    else {
+      item.wishList = false
+      localStorage.setItem('addWishList_' + item.id, 'false');
+      console.log('addToWishElse', item);
       this.wishListService.removeFromWishlist(item)
-
+      this.toastr.error(`Your product ${item.title} Remove in wishList!`, 'Remove');
     }
-    
   }
 
-  GoToWish(item){
-    console.log('inProductComponent',item);
+  GoToWish(item) {
+    console.log('inProductComponent', item);
     this.wishlist2.wishItam(item)
   }
 }

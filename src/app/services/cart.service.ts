@@ -164,6 +164,15 @@ export class CartService {
   }
 
 
+  removeAllCart(){
+    // localStorage.removeItem('cartItem')
+    // // localStorage.setItem("cartItem", JSON.stringify(this.productsItems))
+    // this.productsItems=JSON.parse(localStorage.getItem("cartItem")) || [];
+    // localStorage.setItem('cartItem_' , 'false');
+    // localStorage.setItem('addCartItem_','false')
+
+  }
+
   removeToCart(item: any) {
     localStorage.setItem('cartItem_' + item.id, 'false');
     console.log('remove work work');

@@ -12,14 +12,21 @@ export class CommanService {
 
 private allProduct():Observable<any>{
   return  this.http.get('https://fakestoreapi.com/products/')
+  // return  this.http.get('https://dummyjson.com/products')
+  // return  this.http.get('https://dummyjson.com/products/')
+
+
+}
+private getProductData():Observable<any>{
+  return  this.http.get('https://fakestoreapi.com/products/')
+  // return  this.http.get('https://dummyjson.com/products')
+  // return  this.http.get('https://dummyjson.com/products/')
 
 
 }
 
   getProduct():Observable<any>{
     return this.allProduct()
-    
-
   }
 
   singleProduct(id):Observable<any>{
@@ -49,4 +56,5 @@ private allProduct():Observable<any>{
     });
     return matchingItemsWithIndex;
   }
+  
 }
