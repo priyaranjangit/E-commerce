@@ -78,7 +78,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     // NextviewcartComponent,
   ],
   imports: [
-    
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
