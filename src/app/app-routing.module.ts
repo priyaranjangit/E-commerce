@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'showproduct/:id',component:ShowproductComponent},
   {path:'wishlist',component:WishlistComponent},
   {path:'success',component:SuccessComponent},
-  {path:'comman',component:CommanComponent}
+  // {path:'comman',component:CommanComponent}
 
 
 
