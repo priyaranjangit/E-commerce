@@ -41,10 +41,18 @@
             <app-set-horz-slider></app-set-horz-slider>
         </div>
         <!-- <app-set-horz-slider></app-set-horz-slider> -->
-        <div class="col-md-11">
+        <div class="col-md-11 coustom-top ">
             <div class="container">
                 <div class="row">
-                    <ng-container *ngFor="let item of allIteam let i = index">
+                    <!-- <ng-container *ngIf="searchData">
+                        <div class="col-md-12">
+                            <div class="card effect-2 ">
+                                <span>no SerchItem</span>
+                            </div>
+                        </div>
+                    </ng-container> -->
+
+                    <ng-container *ngFor="let item of allIteam | filter:searchData ;let i = index "   >
                         <div class="col-md-3">
                             <div class="card effect-2 " style="width: 18rem;height: 25rem ;">
                                 <span *ngIf="item.wishList===true">
@@ -157,20 +165,3 @@
         </ng-container> -->
     </div>
 </div>
-
-
-<!-- <div>
-    <h2>Matched Data</h2>
-    <ul>
-      <li *ngFor="let item of matchedItems">{{ item.id }}</li>
-    </ul>
-  </div> -->
-<!-- <div>
-    <h2>Matched Data</h2>
-    <ul>
-      <li *ngFor="let item1 of allIteam">
-        <span *ngIf="addCartData.find(item2 => item2.id === item1.id)">
-        </span>
-      </li>
-    </ul>
-  </div> -->

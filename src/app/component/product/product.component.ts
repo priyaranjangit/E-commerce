@@ -11,6 +11,7 @@ import {
   NgxUiLoaderService
 } from "ngx-ui-loader";
 import { Wishlist2Service } from 'src/app/services/wishlist2.service';
+import { SerchingService } from 'src/app/services/serching.service';
 
 @Component({
   selector: 'app-product',
@@ -57,13 +58,15 @@ export class ProductComponent implements OnInit {
   animationState: string = 'initial';
   loadingStates: boolean[] = [];
   isLoading: boolean = true;
+  searchData: string = '';
 
   constructor(private commanService: CommanService, private cartService: CartService,
     private wishListService: WishlistserviceService,
     private router: Router,
     private ngxLoader: NgxUiLoaderService,
     private toastr: ToastrService,
-    private wishlist2: Wishlist2Service) {
+    private wishlist2: Wishlist2Service,
+    private serchIng:SerchingService) {
       
     }
     
@@ -71,6 +74,7 @@ export class ProductComponent implements OnInit {
       this.commanService.getProduct().subscribe((res)=>{
         console.log(res);
       })
+      this.serchIng.currentSearchData.subscribe(data => this.searchData = data);
     // Method to trigger animation
 
     // debugger

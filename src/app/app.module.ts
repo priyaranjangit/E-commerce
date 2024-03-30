@@ -11,6 +11,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxImgZoomModule } from 'ngx-img-zoom';
 import { CommanComponent } from './component/comman/comman.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { NgxSearchFilterModule } from 'ngx-search-filter';
+
+// import { FilterPipe } from './filter.pipe';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 // import { NextviewcartComponent } from './nextviewcart/nextviewcart.component';
 import { ToastrModule } from 'ngx-toastr';
 // import { NgxUiLoaderModule } from "ngx-ui-loader";
@@ -78,6 +82,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     // NextviewcartComponent,
   ],
   imports: [
+    FilterPipeModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -88,6 +93,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     NgxImgZoomModule,
     NgxUiLoaderModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    NgxSearchFilterModule,
 
     // ToastrModule.forRoot({
     //   positionClass: 'toast-bottom-center', // Position to display toasts at the bottom center
