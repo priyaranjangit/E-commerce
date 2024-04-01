@@ -15,7 +15,7 @@ export class SerchingService {
 
   setSearchData(data: string) {
     this.searchData.next(data);
-    console.log('serching data',data);
+    // console.log('serching data',data);
     
   }
 }

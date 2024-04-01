@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CommanService } from 'src/app/services/comman.service';
 import { Global } from 'src/app/services/global';
 import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 // import { AuthService } from '../auth.service';
 
 @Component({
@@ -18,16 +19,21 @@ export class LoginComponent implements OnInit {
   loading: boolean;
   loadingReg: boolean;
   @ViewChild('nav') elnav : any;
+  isLogin: boolean;
   constructor(
     private formBuilder: FormBuilder,
     private toster:ToastrService,
     private commanService:CommanService,
     private authService:AuthService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
     this.setLoginForm()
     this.setRegisterForm()
+    if (localStorage.getItem('userDetails')) {
+      this.router.navigate(['']); // Redirect to dashboard if already logged in
+    }
   }
   setLoginForm() {
     this.loginForm = this.formBuilder.group({

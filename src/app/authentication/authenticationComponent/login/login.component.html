@@ -1,9 +1,12 @@
 <div class="login-wrap">
-	<div class="login-html" style="background-color: rgb(179, 186, 192);">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Log In</label>
+	<div class="center-log-sign"></div>
+	<div class="login-html" style="background-color : rgba(236, 148, 60, 0.8); ">
+		<div></div>
+		<input id="tab-1" type="radio" name="tab" class="sign-in" style="text-align: center;" checked><label for="tab-1"
+			class="tab">Log In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
 		<div class="login-form">
-			<div >
+			<div class="login-page-center">
 				<form [formGroup]="loginForm" (ngSubmit)="login()">
 					<div class="sign-in-htm">
 						<div class="group">
@@ -12,12 +15,13 @@
 						</div>
 						<div class="group">
 							<label for="pass" class="label">Password</label>
-							<input id="pass" type="password" class="input" data-type="password" formControlName="password">
+							<input id="pass" type="password" class="input" data-type="password"
+								formControlName="password">
 						</div>
 						<div class="group">
-	
+
 							<button type="submit" class="button  btn-accent btn-block btn-flat b-r-10"
-								style="background: #050505;">
+								style="background: #050505;  margin-top: 2rem;">
 								LogIn
 								<!-- <i class="fa fa-spinner fa-spin" *ngIf="loading"></i> -->
 								<i class="fas fa-spinner fa-pulse" *ngIf="loading"></i>
@@ -31,104 +35,98 @@
 					</div>
 				</form>
 			</div>
+			<div class="signup-page-center">
 
-			<form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+				<form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+					<!-- <div class="form-group">
+			<label>Username</label>
+			<input
+			  type="text"
+			  formControlName="firstName"
+			  class="input"
+			  [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors ||f['firstName'].touched}"
+			/>
+			<div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+			  <div *ngIf="f['firstName'].errors['required']">Username is required</div>
+			  <div *ngIf="f['firstName'].errors['minlength']">
+				Username must be at least 6 characters
+			  </div>
+			  <div *ngIf="f['firstName'].errors['maxlength']">
+				Username must not exceed 20 characters
+			  </div>
+			</div>
+		  </div>  -->
 
+					<div class="sign-up-htm">
+						<div class="group">
+							<label for="user" class="label">FirstName</label>
+							<input id="user" type="text" class="input" formControlName="firstName"
+								[ngClass]="{ 'is-invalid': submitted && f['firstName'].errors || f['firstName'].touched}">
+							<div *ngIf="submitted && f['firstName'].errors ||f['firstName'].touched "
+								class="invalid-feedback">
+								<div *ngIf="f['firstName'].errors['required']"><b>FirstName is Required</b></div>
+								<div *ngIf="f['firstName'].errors['touched']"><b>Firstname is Required</b></div>
+								<div *ngIf="f['firstName'].errors['minlength']"><b>Firstname is Minimum 3</b> </div>
+							</div>
+						</div>
+						<div class="group">
+							<label for="user" class="label">LastName</label>
+							<input id="user" type="text" class="input" formControlName="lastName"
+								[ngClass]="{'is-invalid' : submitted && f['lastName'].errors|| f['lastName'].touched }">
+							<div *ngIf="submitted && f['lastName'].errors || f['lastName'].touched "
+								class="invalid-feedback">
+								<div *ngIf="f['lastName'].errors['required']"><b>LastName is Required</b></div>
+								<div *ngIf="f['lastName'].errors['touched']"><b>LastName is Required</b></div>
+								<div *ngIf="f['lastName'].errors['minlength']"> <b>LastName is Minimum 3</b> </div>
+							</div>
+						</div>
+						<!-- <div class="col-xl-3 col-md-4 invalid-feedback"
+			*ngIf="submitted && f.lastName.errors">
+			<div *ngIf="f.firstName.errors.required">First Name is required
+			</div>
+			<div *ngIf="f.firstName.errors.minlength">First Name min length
+				should be 3 char long</div>
+			<div *ngIf="f.firstName.errors.maxlength">First Name max length
+				should be 20 char long</div>
+		</div> -->
+						<div class="group">
+							<label for="pass" class="label">Email Address</label>
+							<input id="pass" type="text" class="input" formControlName="email">
+							<div *ngIf="submitted && f['email'].errors ||f['email'].touched " class="invalid-feedback">
+								<div *ngIf="f['email'].errors['required']"><b>Email is required</b></div>
+								<!-- <div *ngIf="f['email'].errors['touched']">firatname is required</div>
+								<div *ngIf="f['email'].errors['minlength']">firatname is minimum 3 </div> -->
+							</div>
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Password</label>
+							<input id="pass" type="password" class="input" data-type="password"
+								formControlName="password">
+							<div *ngIf="submitted && f['password'].errors ||f['password'].touched "
+								class="invalid-feedback">
+								<span *ngIf="f['password'].errors['required']">firatname is required</span>
+								<div *ngIf="f['password'].errors['touched']">firatname is required</div>
+								<div *ngIf="f['password'].errors['minlength']">firatname is minimum 3 </div>
+							</div>
+						</div>
+						<div class="group">
+							<label for="pass" class="label">Confirm Password</label>
+							<input id="pass" type="password" class="input" data-type="password"
+								formControlName="confirmPassword">
+						</div>
 
-				 <!-- <div class="form-group">
-					<label>Username</label>
-					<input
-					  type="text"
-					  formControlName="firstName"
-					  class="input"
-					  [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors ||f['firstName'].touched}"
-					/>
-					<div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
-					  <div *ngIf="f['firstName'].errors['required']">Username is required</div>
-					  <div *ngIf="f['firstName'].errors['minlength']">
-						Username must be at least 6 characters
-					  </div>
-					  <div *ngIf="f['firstName'].errors['maxlength']">
-						Username must not exceed 20 characters
-					  </div>
-					</div>
-				  </div>  -->
+						<div class="group">
 
-				<div class="sign-up-htm">
-					<div class="group">
-						<label for="user" class="label">FirstName</label>
-						<input id="user"
-						type="text"
-						class="input"
-						formControlName="firstName"
-						
-						[ngClass]="{ 'is-invalid': submitted && f['firstName'].errors || f['firstName'].touched}">
-						<div *ngIf="submitted && f['firstName'].errors ||f['firstName'].touched " class="invalid-feedback">
-						<div *ngIf="f['firstName'].errors['required']">firatname is required</div>
-						<div *ngIf="f['firstName'].errors['touched']">firatname is required</div>
-						<div *ngIf="f['firstName'].errors['minlength']">firatname is minimum 3 </div>
+							<button type="submit" class="button  btn-accent btn-block btn-flat b-r-10"
+								style="background: #050505; margin-top: 2rem;">
+								Sign Up
+								<!-- <i class="fa fa-spinner fa-spin" *ngIf="loadingReg"></i> -->
+								<i class="fas fa-spinner fa-pulse" *ngIf="loadingReg"></i>
+							</button>
 						</div>
 					</div>
-					<div class="group">
-						<label for="user" class="label">LastName</label>
-						<input id="user" type="text" class="input" formControlName="lastName"
-							[ngClass]="{'is-invalid' : submitted && f['lastName'].errors|| f['lastName'].touched }">
-							<div *ngIf="submitted && f['lastName'].errors || f['lastName'].touched " class="invalid-feedback">
-								<div *ngIf="f['lastName'].errors['required']">lastName is required</div>
-								<div *ngIf="f['lastName'].errors['touched']">lastName is required</div>
-								<div *ngIf="f['lastName'].errors['minlength']">lastName is minimum 3 </div>
-							</div>
-					</div>
-					<!-- <div class="col-xl-3 col-md-4 invalid-feedback"
-					*ngIf="submitted && f.lastName.errors">
-					<div *ngIf="f.firstName.errors.required">First Name is required
-					</div>
-					<div *ngIf="f.firstName.errors.minlength">First Name min length
-						should be 3 char long</div>
-					<div *ngIf="f.firstName.errors.maxlength">First Name max length
-						should be 20 char long</div>
-				</div> -->
-					<div class="group">
-						<label for="pass" class="label">Email Address</label>
-						<input id="pass" type="text" class="input" formControlName="email">
-						<div *ngIf="submitted && f['email'].errors ||f['email'].touched " class="invalid-feedback">
-							<div *ngIf="f['email'].errors['required']">firatname is required</div>
-							<div *ngIf="f['email'].errors['touched']">firatname is required</div>
-							<div *ngIf="f['email'].errors['minlength']">firatname is minimum 3 </div>
-							</div>
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Password</label>
-						<input id="pass" type="password" class="input" data-type="password" formControlName="password">
-						<div *ngIf="submitted && f['password'].errors ||f['password'].touched " class="invalid-feedback">
-							<div *ngIf="f['password'].errors['required']">firatname is required</div>
-							<div *ngIf="f['password'].errors['touched']">firatname is required</div>
-							<div *ngIf="f['password'].errors['minlength']">firatname is minimum 3 </div>
-							</div>
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Confirm Password</label>
-						<input id="pass" type="password" class="input" data-type="password"
-							formControlName="confirmPassword">
-					</div>
-
-					<div class="group">
-
-						<button type="submit" class="button  btn-accent btn-block btn-flat b-r-10"
-							style="background: #050505;">
-							Sign Up
-							<!-- <i class="fa fa-spinner fa-spin" *ngIf="loadingReg"></i> -->
-							<i class="fas fa-spinner fa-pulse" *ngIf="loadingReg"></i>
-						</button>
-					</div>
-
-					<!-- <div class="group">
-						<input type="submit" class="button" value="Sign Up">
-					</div> -->
-
-					<div class="hr"></div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

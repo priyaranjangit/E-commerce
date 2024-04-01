@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { Wishlist2Service } from 'src/app/services/wishlist2.service';
@@ -21,8 +22,9 @@ export class ViewcartComponent implements OnInit {
   total: void;
   shoppingCartProductIndex: any;
   itemIndex: any;
+  userId: any;
   constructor(private cartService: CartService, private toastr: ToastrService,
-    private wishListService: Wishlist2Service) { }
+    private wishListService: Wishlist2Service,private router:Router) { }
 
   ngOnInit(): void {
     this.cartService.getItems().subscribe((res) => {
@@ -79,6 +81,17 @@ export class ViewcartComponent implements OnInit {
         this.toastr.error(`Successfully removed ${product.product.title}  from your cart!`, 'Remove');
       }
     });
+  }
+
+  redirectToPage(){
+    this.userId=JSON.parse(localStorage.getItem('userDetails'))
+    console.log('lockal',this.userId);
+    if(this.userId){
+      this.router.navigate(['/checkout']);
+   }else{
+    this.toastr.error(`Please Login Before Place Order`, 'Login');
+   }
+
   }
 
 }

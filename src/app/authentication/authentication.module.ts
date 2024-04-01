@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './authenticationComponent/login/login.component';
-import { SignupComponent } from './authenticationComponent/signup/signup.component';
+// import { SignupComponent } from './authenticationComponent/signup/signup.component';
 import { CheckoutComponent } from '../shop/shop-component/checkout/checkout.component';
 import { WishlistComponent } from '../shop/shop-component/wishlist/wishlist.component';
 import { ViewcartComponent } from '../shop/shop-component/viewcart/viewcart.component';
@@ -21,7 +21,6 @@ import { NgxImgZoomModule } from 'ngx-img-zoom';
 @NgModule({
   declarations: [
     LoginComponent,
-    SignupComponent,
     // CheckoutComponent,
     // WishlistComponent,
     // ViewcartComponent,

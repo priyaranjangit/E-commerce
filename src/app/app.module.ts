@@ -33,6 +33,7 @@ import { HeadTopComponent } from './component/head-top/head-top.component';
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { SetSliderComponent } from './component/set-slider/set-slider.component';
 import { SetHorzSliderComponent } from './component/set-horz-slider/set-horz-slider.component';
+import { TruncateWordsPipe } from './pipe/truncate-words.pipe';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: 'red',
   // bgsOpacity: 0.5,
@@ -79,6 +80,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     TruncatePipe,
     SetSliderComponent,
     SetHorzSliderComponent,
+    TruncateWordsPipe,
     // NextviewcartComponent,
   ],
   imports: [
