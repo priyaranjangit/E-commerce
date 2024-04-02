@@ -25,11 +25,11 @@ export class HeadTopComponent implements OnInit {
   public totalCartIteam: any[] = [];
   public searchTerm !: string;
   constructor(private cartService: CartService, private router: Router, private authService: AuthService,private serchIng:SerchingService) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.showHeader = !event.url.includes('/viewcart');
-      }
-    });
+    // this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     this.showHeader = !event.url.includes('/viewcart');
+    //   }
+    // });
   }
 
 

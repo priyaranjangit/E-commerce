@@ -84,10 +84,14 @@ export class ViewcartComponent implements OnInit {
   }
 
   redirectToPage(){
-    this.userId=JSON.parse(localStorage.getItem('userDetails'))
-    console.log('lockal',this.userId);
-    if(this.userId){
+    // debugger
+    // this.userId=JSON.parse(localStorage.getItem('userDetails'))
+    // console.log('lockal',this.userId);
+    if(true){
+      console.log('user inner function');
+      
       this.router.navigate(['/checkout']);
+      // window.location.href = '/checkout'
    }else{
     this.toastr.error(`Please Login Before Place Order`, 'Login');
    }

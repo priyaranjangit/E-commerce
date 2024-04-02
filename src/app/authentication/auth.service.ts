@@ -34,7 +34,7 @@ export class AuthService {
       console.log('inAuthservice',this.currentUser);
       
       this.loggedIn.next(true);
-      this.router.navigate(['']);
+      this.router.navigate(['/checkout']);
     }
   }
 
