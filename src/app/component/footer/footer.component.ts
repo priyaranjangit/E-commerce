@@ -18,15 +18,15 @@ export class FooterComponent implements OnInit {
   }
   
   ngOnInit() {
-    // this.router.events.pipe(
-    //   filter((event) => event instanceof NavigationEnd)
-    // ).subscribe((event: NavigationEnd) => {
-    //   // this.previousUrl = this.currentUrl;
-    //   console.log('get current url',      this.currentUrl = event.url);
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      // this.previousUrl = this.currentUrl;
+      console.log('get current url',      this.currentUrl = event.url);
       
-    //   // this.currentUrl = event.url;
-    //   // this.urlService.setPreviousUrl(this.previousUrl);
-    // });
+      // this.currentUrl = event.url;
+      // this.urlService.setPreviousUrl(this.previousUrl);
+    });
   }
   
 }

@@ -9,6 +9,7 @@ export class AuthService {
   private message: string = "";
   private currentUser = new BehaviorSubject<any>(null); // For Token Use
   private loggedIn = new BehaviorSubject<boolean>(false);
+  
 
   get CurrentUser() {
     return this.currentUser.asObservable();
@@ -34,7 +35,7 @@ export class AuthService {
       console.log('inAuthservice',this.currentUser);
       
       this.loggedIn.next(true);
-      this.router.navigate(['/checkout']);
+      this.router.navigate(['']);
     }
   }
 

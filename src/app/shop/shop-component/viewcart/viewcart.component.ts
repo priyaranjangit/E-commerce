@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/authentication/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Wishlist2Service } from 'src/app/services/wishlist2.service';
 import Swal from 'sweetalert2';
@@ -24,9 +25,14 @@ export class ViewcartComponent implements OnInit {
   itemIndex: any;
   userId: any;
   constructor(private cartService: CartService, private toastr: ToastrService,
-    private wishListService: Wishlist2Service,private router:Router) { }
+    private wishListService: Wishlist2Service,private router:Router,private auth:AuthService) { }
 
   ngOnInit(): void {
+    this.auth.CurrentUser.subscribe((res=>{
+      console.log('oop',res);
+      
+    }))
+    console.log('current user',this.auth.isLoggedIn);
     this.cartService.getItems().subscribe((res) => {
       this.shoppingCartProduct = res
       console.log('all product here', res);
@@ -85,10 +91,10 @@ export class ViewcartComponent implements OnInit {
 
   redirectToPage(){
     // debugger
-    // this.userId=JSON.parse(localStorage.getItem('userDetails'))
+    this.userId=JSON.parse(localStorage.getItem('userDetails'))
     // console.log('lockal',this.userId);
-    if(true){
-      console.log('user inner function');
+    if(this.userId){
+      console.log('user inner function',this.userId);
       
       this.router.navigate(['/checkout']);
       // window.location.href = '/checkout'
