@@ -4,17 +4,21 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+    
     <div class="carousel-inner h-25 d-inline-block">
-      <div class="carousel-item active">
-        <!-- <img [src]="logo" [alt]="'logo'"> -->
+      <div *ngFor="let item of carouselItems; let i = index" class="carousel-item" [class.active]="i === 0" >
+        <img class="d-block w-100" src="{{ item.image }}" alt="{{ item.alt }}" rollingAnimation>
+      </div>
+      <!-- <div class="carousel-item active" data-bs-interval="2000" [@rollInOut]>
+       
         <img [src]="Setbanner1" class="rounded-corners d-block w-100 h-25" alt="...">
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item" data-bs-interval="2000" [@rollInOut]>
         <img [src]="Setbanner2" class="rounded-corners d-block w-100 h-25" alt="...">
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item" data-bs-interval="2000" [@rollInOut]>
         <img [src]="Setbanner3" class="rounded-corners d-block w-100 h-25" alt="...">
-      </div>
+      </div> -->
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

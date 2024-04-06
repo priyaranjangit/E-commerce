@@ -34,6 +34,7 @@ import { SerchingService } from 'src/app/services/serching.service';
 })
 
 export class ProductComponent implements OnInit {
+  banner = false;
   productData: any[] = [];
   loading = false;
   storageItems: any[] = [];
@@ -71,6 +72,10 @@ export class ProductComponent implements OnInit {
     }
     
     ngOnInit(): void {
+setTimeout(() => {
+  this.banner = true;
+},2000);
+
       this.commanService.getProduct().subscribe((res)=>{
         console.log(res);
       })

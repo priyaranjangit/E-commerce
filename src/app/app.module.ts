@@ -13,6 +13,7 @@ import { CommanComponent } from './component/comman/comman.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { NgxSearchFilterModule } from 'ngx-search-filter';
 
+
 // import { FilterPipe } from './filter.pipe';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 // import { NextviewcartComponent } from './nextviewcart/nextviewcart.component';
@@ -34,6 +35,10 @@ import { TruncatePipe } from './pipe/truncate.pipe';
 import { SetSliderComponent } from './component/set-slider/set-slider.component';
 import { SetHorzSliderComponent } from './component/set-horz-slider/set-horz-slider.component';
 import { TruncateWordsPipe } from './pipe/truncate-words.pipe';
+import { RollingAnimationDirective } from './coustom-direcative/rolling-animation.directive';
+import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
+
+// import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: 'red',
   // bgsOpacity: 0.5,
@@ -81,9 +86,12 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     SetSliderComponent,
     SetHorzSliderComponent,
     TruncateWordsPipe,
+    RollingAnimationDirective,
+    PagenotfoundComponent,
     // NextviewcartComponent,
   ],
   imports: [
+
     FilterPipeModule,
     BrowserModule,
     BrowserAnimationsModule,

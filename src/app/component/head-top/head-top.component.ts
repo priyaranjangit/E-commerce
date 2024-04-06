@@ -5,10 +5,12 @@ import { AuthService } from 'src/app/authentication/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { SerchingService } from 'src/app/services/serching.service';
 
+
 @Component({
   selector: 'app-head-top',
   templateUrl: './head-top.component.html',
-  styleUrls: ['./head-top.component.scss']
+  styleUrls: ['./head-top.component.scss'],
+ 
 })
 export class HeadTopComponent implements OnInit {
   isSticky = false;

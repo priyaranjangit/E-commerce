@@ -92,3 +92,7 @@ ul {
 //     top: 0; /* Stick to the top of the viewport */
 //     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow when sticky */
 //   }
+
+.carousel-inner .carousel-item {
+    transition-duration: 12s; /* Adjust the duration as needed */
+  }

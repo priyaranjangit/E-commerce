@@ -42,3 +42,38 @@
         display: inline-block;
         margin-left: 31rem;
     }
+
+    .button-with-images {
+        // display: grid;
+        grid-template-columns: repeat(3, auto);
+        // grid-gap: ; /* Adjust as needed */
+        align-items: left;
+      }
+      .set-img{
+        display: inline-block;
+        // padding: 1px;
+        // text-align: center !important;
+        margin: -10px;
+      }
+    //   .img-percent-size {
+    //     width: 10%; /* Set your desired percentage */
+    //     /* Maintain aspect ratio */
+    //   }
+
+  //   .carousel .carousel-item {
+  //     transition-duration: 1s;
+  // }
+      
+  .carousel-inner>.carousel.item {
+    -webkit-transition: -webkit-transform 1.2s ease-in-out !important;
+    -o-transition: -o-transform 1.2s ease-in-out !important;
+    transition: transform 1.2s ease-in-out !important;
+    }
+
+  //   .carousel .carousel-item {
+  //     transition-duration: 1s;
+  // }
+
+  .carousel-inner .carousel-item {
+    transition-duration: 1s; /* Adjust the duration as needed */
+  }

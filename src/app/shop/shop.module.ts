@@ -15,6 +15,7 @@ import { ValidationComponent } from './validation/validation.component';
 import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { SideCarouselComponent } from './side-carousel/side-carousel.component';
 
+
 // import { NguCarouselModule } from '@ngu/carousel';
 // import { NgxImgZoomModule } from 'ngx-img-zoom';
 
@@ -48,4 +49,9 @@ import { SideCarouselComponent } from './side-carousel/side-carousel.component';
     
   ]
 })
-export class ShopModule { }
+export class ShopModule { 
+  
+}
+// export class CaptchaModule {
+ 
+// }

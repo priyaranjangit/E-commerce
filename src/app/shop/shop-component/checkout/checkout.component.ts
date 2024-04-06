@@ -5,6 +5,10 @@ import { ICustomWindow } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CommanService } from 'src/app/services/comman.service';
 import { PaymentService } from 'src/app/services/payment.service';
+import { Location } from '@angular/common';
+import $ from 'jquery';
+declare var $: any;
+
 import {
   AbstractControl,
   FormControl,
@@ -32,14 +36,39 @@ export class CheckoutComponent implements OnInit {
   handler: any;
   providers: [PaymentService]
   formData: any;
-
+  phonePay="assets/images/phone-pay.png"
+  googlePay="assets/images/google-pay.png"
+  cardPay="assets/images/credit-card.png"
+  bankPay="assets/images/mobile-banking.png"
+  walletPay="assets/images/purse.png"
+  upiPay="assets/images/upi.png"
+  // carouselInterval = 2000000; // Adjust autoplay speed in milliseconds
+  carouselInterval: number ;
   constructor(private cartService: CartService,
     private httpService: CommanService,
     private router: Router, private formBuilder: FormBuilder,
-    private PaymentService: PaymentService
-  ) { }
+    private PaymentService: PaymentService,
+    private location:Location
+  ) { 
+    // $('#carousel-example-3').carousel({
+    //   interval: 10000
+    //   });
+  }
 
+  // ngDoCheck(){
+  //   this.carouselInterval=500
+  // }
+  
   ngOnInit(): void {
+    
+
+    $(document).ready(function(){
+      $('.carousel').carousel({
+        interval: 500 // set the interval here if needed
+      });
+    });
+  
+
     this.checkoutForm = new FormGroup({
       items: new FormArray([
         this.createAddress()
@@ -191,4 +220,7 @@ export class CheckoutComponent implements OnInit {
     rzp.open();
   }
 
+  backPage(){
+    this.location.back()
+  }
 }

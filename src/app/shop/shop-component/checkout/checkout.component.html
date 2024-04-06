@@ -117,9 +117,9 @@
           <div class="position-static" *ngIf="checkOutProduct.length">
             <div class="card mb-4">
               <ng-container>
-                <div class="card-header py-3">
+                <div class="card-header py-3 " >
                   <h5 class="mb-0 text-font">{{totalIteams}} item <span [routerLink]="'/viewcart'"
-                      class="float-end mt-1 pointer" style="font-size: 13px ;">Edit</span></h5>
+                      class="float-end mt-1 pointer btn btn-info" style="font-size: 13px ;"><i class='fas fa-reply'></i>Edit</span> </h5>
                 </div>
               </ng-container>
               <div class="card-body">
@@ -175,9 +175,42 @@
                   </ul>
                 </div>
                 <br>
-                <div class="text-center">
-                  <button type="submit" class="btn  btn-primary col-md-10" (click)="payWithRazor()">Pay</button>
-                  <!-- <button type="submit" class="btn  btn-primary col-md-10">Pay wi</button> -->
+                <div class="row">
+                  <div class="col-md-4" >
+                    <button type="submit" style="margin-top: -1rem;" class="btn  btn-primary col-md-12" data-bs-toggle="modal" data-bs-target="#exampleModal" >Cash on Delivery</button>
+
+                  </div>
+                  <div class="col-md-8" >
+                    <!-- <div id="carouselExampleAutoplaying" class="carousel slide " style="margin-left: 13rem;  margin: -10px;" data-bs-ride="carousel" data-interval="100"> -->
+
+                    <div id="carouselExampleControls" style="margin-left: 61%; width: 12%;" class="carousel slide set-img" data-bs-ride="carousel" >
+                      <div class="carousel-inner" style="width: 100%;">
+                        <div class="carousel-item active"  data-bs-interval="400" >
+                          <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                          <img style="width: 30px ;height: 22px;padding-right: 5px;" [src]="phonePay" alt=" phonePay" >
+                        </div>
+                        <div class="carousel-item"  data-bs-interval="1000" >
+                          <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                          <img style="width: 30px ;height: 22px; padding: 1px; background-color: black; border-radius: 10%;"  [src]="googlePay" alt="phonePay" >
+                        </div>
+                        <div class="carousel-item"  data-bs-interval="500" >
+                          <img  style="width: 30px ; height: 22px ;background-color: black; border-radius: 10%;"[src]="upiPay" alt="card" >
+                        </div>
+                        <div class="carousel-item"  data-bs-interval="500" >
+                          <img  style="width: 30px ; height: 22px; "[src]="bankPay" alt="card" >
+                        </div>
+                        <div class="carousel-item"  data-bs-interval="500" >
+                          <img  style="width: 30px ; height: 22px;"[src]="cardPay" alt="card" >
+                        </div>
+                        <div class="carousel-item"  data-bs-interval="500" >
+                          <img  style="width: 30px ; height: 22px;"[src]="walletPay" alt="card" >
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn  btn-primary col-md-12 " style="margin-top: -4rem;" (click)="payWithRazor()" >
+                      <span style="text-align: left;">Pay with</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -185,7 +218,26 @@
         </div>
       </div>
     </form>
-    <button type="button" class="btn btn-danger" (click)="payWithRazor()">Pay </button>
+    <!-- <button type="button" class="btn btn-danger" (click)="payWithRazor()">Pay </button> -->
+
   </section>
   <!--Section: Design Block-->
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter Captcha</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        -------
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Order Cancel</button>
+        <button type="button" class="btn btn-primary">Order Confirmed</button>
+      </div>
+    </div>
+  </div>
 </div>

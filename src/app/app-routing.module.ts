@@ -12,6 +12,7 @@ import { NextviewcartComponent } from './nextviewcart/nextviewcart.component';
 import { contentRoutes } from './routes/content.routes';
 import { AuthGuard } from './authentication/auth.guard';
 import { LoginComponent } from './authentication/authenticationComponent/login/login.component';
+import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,9 @@ const routes: Routes = [
   // {path:'login',component:LoginComponent},
   // {path:'',loadChildren:()=>import('../shop/shop.module').then(m=>m.ShopModule)},
   {path:'login',loadChildren:()=>import('../app/authentication/authentication.module').then(m=>m.AuthenticationModule)},
+  {path:"profile",loadChildren:()=>import('../app/profile/profile.module').then(m=>m.ProfileModule),canActivate:[AuthGuard]},
   {path:'',children:contentRoutes},
+  {path:'**',component:PagenotfoundComponent},
   // {path:'',children:contentRoutes,canActivate: [AuthGuard]},
 
   // {path:'product',component:ProductComponent},
