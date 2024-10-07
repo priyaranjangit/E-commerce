@@ -68,9 +68,9 @@ export class ProductComponent implements OnInit {
     private toastr: ToastrService,
     private wishlist2: Wishlist2Service,
     private serchIng:SerchingService) {
-      
+
     }
-    
+
     ngOnInit(): void {
 setTimeout(() => {
   this.banner = true;
@@ -88,7 +88,7 @@ setTimeout(() => {
 
     this.ngxLoader.start();
     this.commanService.getProduct().subscribe((res) => {
-      
+      debugger
       this.allIteam = res.map((product) => {
         return ({ ...product, addedToCart: localStorage.getItem('addCartItem_' + product.id) === 'true', wishList: localStorage.getItem('addWishList_' + product.id) === 'true' })
       })

@@ -1,7 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable ,of} from 'rxjs';
+import { BehaviorSubject, Observable ,of, throwError} from 'rxjs';
 
+const res = {
+  id: '',
+  email: '',
+  password: '',
+  set: function(id, email, password) {
+    this.id = id;
+    this.email = email;
+    this.password = password;
+  }
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -13,12 +23,13 @@ export class AuthService {
 
   get CurrentUser() {
     return this.currentUser.asObservable();
+    // const res = MyService.checkLogin(this.email, this.password);
   }
 
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
-
+  
   constructor(private router: Router) { }
 
   authLogin(res: any) {
@@ -38,6 +49,11 @@ export class AuthService {
       this.router.navigate(['']);
     }
   }
+ 
+
+
+res:{}
+
 
   getMessage() : string {
     return this.message;

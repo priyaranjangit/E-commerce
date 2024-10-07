@@ -14,18 +14,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  public showPassword: boolean;
   registerForm: FormGroup;
   submitted: boolean = false;
   loading: boolean;
   loadingReg: boolean;
-  @ViewChild('nav') elnav : any;
+
+  @ViewChild('nav') elnav: any;
   isLogin: boolean;
   constructor(
     private formBuilder: FormBuilder,
-    private toster:ToastrService,
-    private commanService:CommanService,
-    private authService:AuthService,
-    private router:Router
+    private toster: ToastrService,
+    private commanService: CommanService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -47,18 +49,20 @@ export class LoginComponent implements OnInit {
       firstName: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(20)])],
       lastName: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(20)])],
       email: ['', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")])],
-      userTypeId: [1],
-      password: ['', Validators.compose([Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}")])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       confirmPassword: ['', Validators.required]
     },
-    {
-      // validators : MustMatchValidator('password','confirmPassword')
-    });
+      {
+        // validators : MustMatchValidator('password','confirmPassword')
+      });
   }
+
+
 
   get f() {
     return this.registerForm.controls;
   }
+
 
   login() {
     if (this.loginForm.get('userName').value == "") {
@@ -69,18 +73,20 @@ export class LoginComponent implements OnInit {
       if (this.loginForm.valid) {
         this.loading = true;
         // call Login API
-        this.commanService.post(Global.BASE_API_PATH + "UserMaster/Login/", this.loginForm.value).subscribe(res => {
+
+        this.commanService.post(Global.BASE_API_PATH+"login", this.loginForm.value).subscribe(res => {
           if (res.isSuccess) {
-            console.log("loginResponce",res);
+            console.log("loginResponce", res);
             this.authService.authLogin(res.data);
             let msg: string = "";
-            msg = this.authService.getMessage();
-            if (msg !== "") {
-              this.toster.error(msg, "Login");
+            // msg = this.authService.getMessage();
+            if (msg == "") {
+              this.toster.success("Login SuccessFully", "Login");
               this.loginForm.reset();
             }
           } else {
-            this.toster.error(res.errors[0], "Login");
+            this.loading = false;
+            this.toster.error(res.errorMessage[0], "Login");
           }
         });
       } else {
@@ -97,15 +103,15 @@ export class LoginComponent implements OnInit {
       // this.loadingReg = true;
       console.log('invalid');
       return;
-      
+
     }
     console.log('valid');
-
     // call register api
-    this.commanService.post(Global.BASE_API_PATH + "UserMaster/Save/", formData.value).subscribe(res => {
+    this.loadingReg = true;
+    this.commanService.post(Global.BASE_API_PATH+"signup", formData.value).subscribe((res) => {
       // debugger
-      if (res.isSuccess) {
-        this.loadingReg = true;
+      if (res.issuccess) {
+        this.loadingReg = false;
         this.toster.success("Registration has been successfully done !!", "Register");
         this.registerForm.reset({
           firstName: '',
@@ -117,14 +123,16 @@ export class LoginComponent implements OnInit {
         });
         this.submitted = false;
         this.elnav.select("logintab");
-        this.loadingReg = false;
+
       }
       else {
-        this.toster.error(res.errors[0], "Register");
+        this.toster.error(res.message, "Register");
         this.loadingReg = false;
       }
+    }, error => {
+      console.error('Error:', error);
     });
-    
+
   }
 
 }

@@ -37,6 +37,7 @@ import { SetHorzSliderComponent } from './component/set-horz-slider/set-horz-sli
 import { TruncateWordsPipe } from './pipe/truncate-words.pipe';
 import { RollingAnimationDirective } from './coustom-direcative/rolling-animation.directive';
 import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
+import { FooterSidebarComponent } from './component/footer-sidebar/footer-sidebar.component';
 
 // import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -88,6 +89,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     TruncateWordsPipe,
     RollingAnimationDirective,
     PagenotfoundComponent,
+    FooterSidebarComponent,
     // NextviewcartComponent,
   ],
   imports: [

@@ -57,6 +57,8 @@
                     </ng-container> -->
 
                     <ng-container *ngFor="let item of allIteam | filter:searchData ;let i = index "   >
+<!-- {{item.image}} -->
+
                         <div class="col-md-3">
                             <div class="card effect-2 " style="width: 18rem;height: 25rem ;">
                                 <span *ngIf="item.wishList===true">
@@ -66,8 +68,11 @@
                                 <span *ngIf="item.wishList===false">
                                     <i class="far fa-heart " style="cursor: pointer;" (click)=addToWish(item)></i>
                                 </span>
+
+                                <img  class="pointer card-img" src="{{item.image}}" [routerLink]="['/showproduct',item.id]" alt=""> <!-- ye kam r rha hai ye   -->
+
                                 <a [routerLink]="['/showproduct',item.id]">
-                                    <img class="pointer card-img" src="{{item.image}}" alt="">
+                                    <!-- <img class="pointer card-img" src="{{item.image}}" alt=""> -->     <!-- ye kam nhi  kr rha hai ye  pata nhi ku  -->
                                 </a>
                                 <div class="card-body" style="padding: 0px">
                                     <h6 class="card-title" style="text-align: center;">{{item.title |truncate:5 }}</h6>
@@ -137,7 +142,7 @@
                       <span  *ngIf="item.wishList===true">
                           <i class='circle fa fa-heart' style="margin-left: 275px; cursor: pointer; color: red;"(click)=addToWish(item) ></i>
                       </span>
-                
+
                     <span *ngIf="item.wishList===false">
                         <i class="far fa-heart " style="margin-left: 275px; cursor: pointer;" (click)=addToWish(item)></i>
                     </span>

@@ -193,7 +193,7 @@ export class CheckoutComponent implements OnInit {
       currency: 'INR',
       name: 'Priyaranjan kumar', // company name or product name
       description: '',  // product description
-      image: './assets/images/pyement_img.jpeg', // company logo or product image
+      image: "", // company logo or product image
       order_id: "", // order_id created by you in backend
       modal: {
         // We should prevent closing of the form when esc key is pressed.

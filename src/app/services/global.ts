@@ -3,7 +3,10 @@ export class Global {
     //public static BASE_API_PATH = "http://localhost:965236/api/";
 
     // For Production :- Live API
-    public static BASE_API_PATH = "http://sahosoftweb.com/api/";
+    // public static BASE_API_PATH = "http://sahosoftweb.com/api/";
+    public static BASE_API_PATH = "https://userauthenticationapi-cajv.onrender.com/api/";
+    // public static BASE_API_PATH = "http://localhost:3000/";
+
 
 
     // For Image Path Live

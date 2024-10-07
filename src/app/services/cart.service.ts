@@ -13,9 +13,6 @@ export class CartService {
   cartItem: any = JSON.parse(localStorage.getItem("cartItem")) ||  []
 
   // newcart item set close
-
-
-
   items: any = [];
   productsItems = JSON.parse(localStorage.getItem("cartItem")) || [];
 

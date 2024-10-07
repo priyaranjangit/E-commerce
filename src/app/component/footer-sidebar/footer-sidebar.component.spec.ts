@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewcartComponent } from './viewcart.component';
+import { FooterSidebarComponent } from './footer-sidebar.component';
 
-describe('ViewcartComponent', () => {
-  let component: ViewcartComponent;
-  let fixture: ComponentFixture<ViewcartComponent>;
+describe('FooterSidebarComponent', () => {
+  let component: FooterSidebarComponent;
+  let fixture: ComponentFixture<FooterSidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewcartComponent ]
+      declarations: [ FooterSidebarComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewcartComponent);
+    fixture = TestBed.createComponent(FooterSidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

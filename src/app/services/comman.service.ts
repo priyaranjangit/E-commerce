@@ -36,8 +36,9 @@ private getProductData():Observable<any>{
 
   post(url: string, model: any): Observable<any> {
     const body = JSON.stringify(model);
-    let httpHeader = new HttpHeaders()
-      .set('Content-Type', 'application/json');
+    let httpHeader = new HttpHeaders({ 'Access-Control-Allow-Origin': '*'}).set('Content-Type', 'application/json');
+    // let options = new RequestOptions({ headers: headers });
+    // let httpHeader = new HttpHeaders().set('Content-Type', 'application/json');
 
     let option = {
       headers: httpHeader
